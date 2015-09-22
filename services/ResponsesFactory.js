@@ -1,20 +1,18 @@
 surveyBot.factory('ResponsesFactory', function ResponsesFactory(){
   var factory = {};
-  factory.funResponses = [];
-  factory.embarrassingResponses = [];
+  factory.responses = [];
 
-  factory.addFunResponse = function(){
-    var funResponse = { text: factory.funResponse, time: new Date() };
-    factory.funResponses.push(funResponse);
-    factory.funResponse = null;
-  };
+  factory.addResponse = function(){
+    var response = {
+      fun: factory.fun,
+      embarrassing: factory.embarrassing,
+      time: new Date()
+    };
 
-  factory.addEmbarrassingResponse = function(){
-    var embarrassingResponse = { text: factory.embarrassingResponse, time: new Date() };
-    factory.embarrassingResponses.push(embarrassingResponse);
-    factory.embarrassingResponse = null;
+    factory.responses.push(response);
+    factory.fun = null;
+    factory.embarrassing = null;
   };
 
   return factory;
-
 });
