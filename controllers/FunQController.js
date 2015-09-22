@@ -1,7 +1,7 @@
-surveyBot.controller('FunQCtrl', function FunQCtrl($scope, QuestionsFactory) {
+surveyBot.controller('FunQCtrl', function FunQCtrl($scope, ResponsesFactory) {
   $scope.question = "What's the funnest thing you've done recently?";
-  $scope.responses = QuestionsFactory.responses;
-  $scope.QuestionsFactory = QuestionsFactory;
+  $scope.responses = ResponsesFactory.responses;
+  $scope.ResponsesFactory = ResponsesFactory;
 
 
 });
