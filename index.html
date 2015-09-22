@@ -12,25 +12,51 @@
   </head>
   <body>
     <div class="container">
+
+      <!-- begin FunQCtrl -->
       <div ng-controller="FunQCtrl">
         <div id="fun-question">
           <h4>{{question}}</h4>
-          <form ng-submit="ResponsesFactory.addResponse()" class="form-inline" role="form">
+          <form ng-submit="ResponsesFactory.addFunResponse()" class="form-inline" role="form">
             <div class="form-group">
-              <input ng-model="ResponsesFactory.response" type="text" class="form-control" placeholder="Fun!">
+              <input ng-model="ResponsesFactory.funResponse" type="text" class="form-control" placeholder="Fun!">
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
         </div>
         <div id="fun-response">
-          <h4 ng-show="responses.length">Responses</h4>
+          <h4 ng-show="funResponses.length">Responses</h4>
             <ul>
-              <li ng-repeat="item in responses">
+              <li ng-repeat="item in funResponses">
                 {{item.text}} @ {{item.time | date: "short"}}
               </li>
             </ul>
         </div>
       </div>
+      <!-- end FunQCtrl -->
+
+      <!-- begin EmbarrassingQCtrl -->
+      <div ng-controller="EmbarrassingQCtrl">
+        <div id="embarrassing-question">
+          <h4>{{question}}</h4>
+          <form ng-submit="ResponsesFactory.addEmbarrassingResponse()" class="form-inline" role="form">
+            <div class="form-group">
+              <input ng-model="ResponsesFactory.embarrassingResponse" type="text" class="form-control" placeholder="Embarrassing!">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div id="embarrassing-response">
+          <h4 ng-show="embarrassingResponses.length">Responses</h4>
+            <ul>
+              <li ng-repeat="item in embarrassingResponses">
+                {{item.text}} @ {{item.time | date: "short"}}
+              </li>
+            </ul>
+        </div>
+      </div>
+      <!-- end EmbarrassingQCtrl -->
+
     </div>
   </body>
 </html>
