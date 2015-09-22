@@ -5,6 +5,7 @@
     <script src="app.js"></script>
     <script src="controllers/FunQController.js"></script>
     <script src="controllers/EmbarrassingQController.js"></script>
+    <script src="controllers/ResponsesController.js"></script>
     <script src="services/ResponsesFactory.js"></script>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -56,6 +57,24 @@
         </div>
       </div>
       <!-- end EmbarrassingQCtrl -->
+
+
+
+      <!-- <div id="thank-you" ng-show="ResponsesFactory.embarrassingResponses.length && ResponsesFactory.funResponses.length"> -->
+        <div id="thank-you" ng-controller="ResponsesCtrl">
+          <div id="thank-you" ng-show="ResponsesFactory.embarrassingResponses.length && ResponsesFactory.funResponses.length">
+        <!-- thank you for answering our questions. {{ResponsesFactory.embarrassingResponses}} -->
+        <ul>
+          <li ng-repeat="item in ResponsesFactory.funResponses">{{ResponsesFactory.funResponses}}</li>
+          <li ng-repeat="item in ResponsesFactory.embarrassingResponses">{{ResponsesFactory.embarrassingResponses}}</li>
+        </ul>
+        </div>
+      </div>
+
+
+      <div id="results" ng-show="embarrassingResponses.length >= 5 && funResponses.length >= 5">
+        show results here
+      </div>
 
     </div>
   </body>
