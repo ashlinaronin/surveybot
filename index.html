@@ -15,18 +15,40 @@
 
       <!-- begin QCtrl -->
       <div ng-controller="QCtrl">
-        <div id="fun-question">
+        <div id="fun-question" ng-hide="ResponsesFactory.responses.length >= 5">
           <h4>{{question}}</h4>
           <form ng-submit="ResponsesFactory.addResponse()" class="form-inline" role="form">
             <div class="form-group">
-              <input id="fun-response" ng-model="ResponsesFactory.fun" type="text" class="form-control" placeholder="Fun!">
-              <input id="embarrassing-response" ng-model="ResponsesFactory.embarrassing" type="text" class="form-control" placeholder="Embarrassing!">
+
+              <!-- next president -->
+              <select id="president-response" ng-model="ResponsesFactory.president" class="form-control">
+                <option value="">Who should be the next president?</option>
+                <option value="bernie">Bernie Sanders</option>
+                <option value="hillary">Hillary Clinton</option>
+                <option value="arnie">Arnold Schwarzenegger</option>
+                <option value="homer">Homer Simpson</option>
+                <option value="donald">Donald Trump</option>
+              </select>
+              <!-- end next president -->
+
+              <!-- fav science entertainer -->
+              <select id="science-response" ng-model="ResponsesFactory.science" class="form-control">
+                <option value="">Who is the highest-quality science entertainer?</option>
+                <option value="carl">Carl Sagan</option>
+                <option value="neil">Neil deGrasse Tyson</option>
+                <option value="bill">Bill Nye the Science Guy</option>
+                <option value="richard">Richard Dawkins</option>
+                <option value="michio">Michio Kaku</option>
+              </select>
+              <!-- end fav science entertainer -->
+
+
             </div>
             <button type="submit" class="btn btn-default">Submit</button>
           </form>
         </div>
         <div id="thank-you" ng-show="ResponsesFactory.responses.length">
-          Thank you!
+          Thank you! Your response has been recorded.
         </div>
       </div>
       <!-- end QCtrl -->
@@ -45,18 +67,6 @@
       <!-- end ResultsCtrl -->
 
 
-
-
-
-
-
-
-
-
-
-      <div id="results" ng-show="embarrassingResponses.length >= 5 && funResponses.length >= 5">
-        show results here
-      </div>
 
     </div>
   </body>

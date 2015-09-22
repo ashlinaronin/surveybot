@@ -4,14 +4,14 @@ surveyBot.factory('ResponsesFactory', function ResponsesFactory(){
 
   factory.addResponse = function(){
     var response = {
-      fun: factory.fun,
-      embarrassing: factory.embarrassing,
+      president: factory.president,
+      science: factory.science,
       time: new Date()
     };
 
     factory.responses.push(response);
-    factory.fun = null;
-    factory.embarrassing = null;
+    factory.president = "";
+    factory.science = "";
   };
 
   return factory;
