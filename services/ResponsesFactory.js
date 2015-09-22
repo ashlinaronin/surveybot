@@ -1,6 +1,9 @@
 surveyBot.factory('ResponsesFactory', function ResponsesFactory(){
   var factory = {};
   factory.responses = [];
+  factory.presidentResults = {};
+  factory.scienceResults = {};
+
 
   factory.addResponse = function(){
     var response = {

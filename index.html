@@ -1,13 +1,11 @@
 <!doctype html>
 <html ng-app="surveyBot">
   <head>
-    <script src="lib/angular.js"></script>
-    <script src="app.js"></script>
-    <script src="controllers/QuestionsController.js"></script>
-    <script src="controllers/ResultsController.js"></script>
-    <script src="services/ResponsesFactory.js"></script>
+
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/angular-chart.css">
     <title>Survey Bot</title>
   </head>
   <body>
@@ -53,15 +51,24 @@
       </div>
       <!-- end QCtrl -->
 
-
+      <div ng-controller="DoughnutCtrl" id="doughnut-chart">
+        <div class="chart-container">
+          <canvas id="doughnut" class="chart chart-doughnut" chart-data="data" chart-labels="labels" chart-legend="false"></canvas>
+        </div>
+      </div>
 
       <!-- begin ResultsCtrl -->
       <div id="results" ng-controller="ResultsCtrl">
-        <button class="btn" ng-show="ResponsesFactory.responses.length >= 5" ng-click="showResults = true">Show Results</button>
+        <button class="btn" ng-show="ResponsesFactory.responses.length >= 5" ng-click="showResults = true; calculateResults();">Show Results</button>
         <div ng-show="showResults">
           <ul>
             <li ng-repeat="item in ResponsesFactory.responses">{{item}}</li>
+
           </ul>
+          {{presidentResults}}
+          {{scienceResults}}
+          {{presidentResults.donald}} people say Trump...
+
         </div>
       </div>
       <!-- end ResultsCtrl -->
@@ -69,5 +76,14 @@
 
 
     </div>
+    <script src="lib/angular.js"></script>
+    <script src="lib/chart.js"></script>
+    <script src="lib/angular-chart.js"></script>
+    <script src="app.js"></script>
+    <script src="controllers/QuestionsController.js"></script>
+    <script src="controllers/ResultsController.js"></script>
+    <script src="controllers/DoughnutController.js"></script>
+    <script src="services/ResponsesFactory.js"></script>
+
   </body>
 </html>
